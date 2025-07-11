@@ -1,0 +1,125 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f0f0;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  background: #fff;
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+input, button {
+  margin: 5px;
+  padding: 5px 10px;
+}
+
+button {
+  cursor: pointer;
+}
+
+button.rojo {
+  background-color: #f44336;
+  color: white;
+}
+
+h1, h2, h3 {
+  color: #222;
+}
+
+.auto {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+  background: #f9f9f9;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.auto .info {
+  flex-grow: 1;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 4px;
+  text-align: center;
+}
+
+.botones {
+  margin-top: 10px;
+}
+
+/* 🌙 Modo oscuro mejorado */
+body.oscuro {
+  background: #121212;
+  color: #f9f9f9;
+}
+
+body.oscuro .container {
+  background: #1e1e1e;
+  color: #f9f9f9;
+}
+
+body.oscuro input,
+body.oscuro button {
+  background: #2b2b2b;
+  color: #ffffff;
+  border: 1px solid #888;
+}
+
+body.oscuro h1,
+body.oscuro h2,
+body.oscuro h3,
+body.oscuro label {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+body.oscuro table {
+  background: #1c1c1c;
+  color: #ffffff;
+  border-color: #444;
+}
+
+body.oscuro th {
+  background-color: #333;
+  color: #ffffff;
+}
+
+body.oscuro td {
+  border-color: #555;
+  color: #f0f0f0;
+}
+
+body.oscuro #total,
+body.oscuro #contador-autos {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.rojo {
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.rojo:hover {
+  background-color: #b71c1c;
+}

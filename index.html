@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aparcamiento</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Librerías PDF correctas -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+  <script>
+    window.jsPDF = window.jspdf.jsPDF;
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>📋 Aparcamiento</h1>
+    <input type="text" id="matricula" placeholder="Matrícula" />
+    <button onclick="agregarAuto()">Agregar Auto</button>
+    <h2>🚗 Autos en el estacionamiento</h2>
+    <h3>Autos actualmente: <span id="contador-autos">0</span></h3>
+    <div id="autos"></div>
+    <h2>📆 Historial por día</h2>
+    <div>
+      <label>📅 Filtro por fecha: <input type="date" id="filtroFecha" onchange="renderizarHistorial()" /></label>
+      <label>🔎 Filtro por matrícula: <input type="text" id="filtroMatricula" oninput="renderizarHistorial()" /></label>
+      <label>📆 Desde: <input type="date" id="rangoDesde" onchange="renderizarHistorial()" /></label>
+      <label>📆 Hasta: <input type="date" id="rangoHasta" onchange="renderizarHistorial()" /></label>
+    </div>
+    <div id="historial"></div>
+    <h3>Total recaudado hoy: <span id="total">$0</span></h3>
+    <div class="botones">
+      <button onclick="generarPDF()">📄 Generar PDF</button>
+      <button onclick="toggleTema()">🌗 Tema Oscuro/Claro</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

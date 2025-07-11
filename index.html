@@ -5,12 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aparcamiento</title>
   <link rel="stylesheet" href="styles.css" />
-  <!-- Librerías PDF -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
-  <script>
-    window.jsPDF = window.jspdf.jsPDF;
-  </script>
 </head>
 <body>
   <div class="container">
@@ -37,6 +31,31 @@
       <button onclick="toggleTema()">🌗 Tema Oscuro/Claro</button>
     </div>
   </div>
-  <script src="script.js"></script>
+
+  <!-- Firebase y App -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import {
+      getFirestore, collection, getDocs, addDoc, deleteDoc,
+      doc, updateDoc, serverTimestamp, onSnapshot
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCCFGUUoMiASv_A9zg8oN3FNnvCSUYmZBE",
+      authDomain: "estacionamiento-8e570.firebaseapp.com",
+      projectId: "estacionamiento-8e570",
+      storageBucket: "estacionamiento-8e570.firebasestorage.app",
+      messagingSenderId: "904458707495",
+      appId: "1:904458707495:web:25a01e466622d50f4fe402",
+      measurementId: "G-PGME7T31JF"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    window.db = db;
+
+    // Cargar lógica de app después de Firebase
+    import('./script.js').catch(console.error);
+  </script>
 </body>
 </html>

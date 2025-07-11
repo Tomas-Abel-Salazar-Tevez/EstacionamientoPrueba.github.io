@@ -1,61 +1,42 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aparcamiento</title>
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aparcamiento</title>
+<link href="styles.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
-  <div class="container">
-    <h1>📋 Aparcamiento</h1>
-    <input type="text" id="matricula" placeholder="Matrícula" />
-    <button onclick="agregarAuto()">Agregar Auto</button>
+<div class="container">
+  <h1>📋 Aparcamiento</h1>
 
-    <h2>🚗 Autos en el estacionamiento</h2>
-    <h3>Autos actualmente: <span id="contador-autos">0</span></h3>
-    <div id="autos"></div>
+  <input type="text" id="matricula" placeholder="Matrícula">
+  <button onclick="agregarAuto()">Agregar Auto</button>
 
-    <h2>📆 Historial por día</h2>
-    <div class="filtros">
-      <label>📅 Filtro por fecha: <input type="date" id="filtroFecha" onchange="renderizarHistorial()" /></label>
-      <label>🔎 Filtro por matrícula: <input type="text" id="filtroMatricula" oninput="renderizarHistorial()" /></label>
-      <label>📆 Desde: <input type="date" id="rangoDesde" onchange="renderizarHistorial()" /></label>
-      <label>📆 Hasta: <input type="date" id="rangoHasta" onchange="renderizarHistorial()" /></label>
-    </div>
-    <div id="historial"></div>
-    <h3>Total recaudado hoy: <span id="total">$0</span></h3>
+  <h2>🚗 Autos en el estacionamiento</h2>
+  <div id="autos"></div>
 
-    <div class="botones">
-      <button onclick="generarPDF()">📄 Generar PDF</button>
-      <button onclick="toggleTema()">🌗 Tema Oscuro/Claro</button>
-    </div>
+  <h2>📆 Historial por día</h2>
+  <div>
+    <label>📅 Filtro por fecha: <input type="date" id="filtroFecha" onchange="renderizarHistorial()"></label>
+        <label>📆 Desde: <input type="date" id="rangoDesde" onchange="renderizarHistorial()"></label>
+    <label>📆 Hasta: <input type="date" id="rangoHasta" onchange="renderizarHistorial()"></label>
   </div>
 
-  <!-- Firebase y App -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-    import {
-      getFirestore, collection, getDocs, addDoc, deleteDoc,
-      doc, updateDoc, serverTimestamp, onSnapshot
-    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+  <div id="historial"></div>
 
-    const firebaseConfig = {
-      apiKey: "AIzaSyCCFGUUoMiASv_A9zg8oN3FNnvCSUYmZBE",
-      authDomain: "estacionamiento-8e570.firebaseapp.com",
-      projectId: "estacionamiento-8e570",
-      storageBucket: "estacionamiento-8e570.firebasestorage.app",
-      messagingSenderId: "904458707495",
-      appId: "1:904458707495:web:25a01e466622d50f4fe402",
-      measurementId: "G-PGME7T31JF"
-    };
+  <h3>Total recaudado hoy: <span id="total">$0</span></h3>
 
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-    window.db = db;
+  <div class="botones">
+        <button onclick="generarPDF()">📄 Generar PDF</button>
+    <button onclick="resetearDatos()" class="rojo">🧹 Resetear Datos</button>
+    <button onclick="toggleTema()">🌗 Tema Oscuro/Claro</button>
+      </div>
 
-    // Cargar lógica de app después de Firebase
-    import('./script.js').catch(console.error);
-  </script>
+  </div>
+
+<script src="script.js"></script>
 </body>
 </html>

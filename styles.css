@@ -36,8 +36,9 @@ h1, h2, h3 {
   display: flex;
   justify-content: space-between;
   margin: 5px 0;
-  padding: 10px;
-  border-radius: 6px;
+  background: #f9f9f9;
+  padding: 5px;
+  border-radius: 4px;
 }
 
 .auto .info {
@@ -59,67 +60,77 @@ th, td {
   text-align: center;
 }
 
-.botones {
-  margin-top: 10px;
-}
-
-.filtros label {
-  display: block;
-  margin: 6px 0;
-}
-
-/* Colores por tiempo */
-.auto[data-tiempo="verde"] {
-  background-color: #d0f5d0;
-}
-
-.auto[data-tiempo="amarillo"] {
-  background-color: #fff8c6;
-}
-
-.auto[data-tiempo="rojo"] {
-  background-color: #ffd6d6;
-}
-
-/* 🌙 Modo oscuro */
 body.oscuro {
   background: #121212;
-  color: #f9f9f9;
+  color: #fff;
 }
 
 body.oscuro .container {
   background: #1e1e1e;
-  color: #f9f9f9;
 }
 
-body.oscuro input,
-body.oscuro button {
-  background: #2b2b2b;
-  color: #ffffff;
-  border: 1px solid #888;
-}
-
-body.oscuro h1, body.oscuro h2, body.oscuro h3, body.oscuro label {
-  color: #ffffff;
-  font-weight: bold;
+body.oscuro input, body.oscuro button {
+  background: #333;
+  color: #ddd;
+  border-color: #555;
 }
 
 body.oscuro table {
-  background: #1c1c1c;
-  color: #ffffff;
-  border-color: #444;
+  background: #222;
+  color: #ddd;
 }
 
+.botones {
+  margin-top: 10px;
+}
+
+
+/* Mejorar visibilidad en modo oscuro */
+body.oscuro h1, 
+body.oscuro h2, 
+body.oscuro h3, 
+body.oscuro label,
+body.oscuro td, 
 body.oscuro th {
-  background-color: #333;
-  color: #ffffff;
+  color: #fff;
 }
 
-body.oscuro td {
-  border-color: #555;
-  color: #f0f0f0;
+body.oscuro input::placeholder {
+  color: #aaa;
 }
 
-.rojo:hover {
-  background-color: #b71c1c;
+body.oscuro #total {
+  color: #fff;
+}
+
+/* Botón de eliminar */
+button.eliminar {
+  background-color: #e91e63;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+button.eliminar:hover {
+  background-color: #c2185b;
+}
+body.oscuro button.eliminar {
+  background-color: #f06292;
+  color: black;
+}
+
+
+/* Estilo del input de matrícula (visibilidad en ambos temas) */
+input#matricula {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+body.oscuro input#matricula {
+  background-color: #1e1e1e;
+  color: #fff;
+  border: 1px solid #666;
 }

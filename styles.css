@@ -36,9 +36,8 @@ h1, h2, h3 {
   display: flex;
   justify-content: space-between;
   margin: 5px 0;
-  background: #f9f9f9;
-  padding: 5px;
-  border-radius: 4px;
+  padding: 10px;
+  border-radius: 6px;
 }
 
 .auto .info {
@@ -64,7 +63,25 @@ th, td {
   margin-top: 10px;
 }
 
-/* 🌙 Modo oscuro mejorado */
+.filtros label {
+  display: block;
+  margin: 6px 0;
+}
+
+/* Colores por tiempo */
+.auto[data-tiempo="verde"] {
+  background-color: #d0f5d0;
+}
+
+.auto[data-tiempo="amarillo"] {
+  background-color: #fff8c6;
+}
+
+.auto[data-tiempo="rojo"] {
+  background-color: #ffd6d6;
+}
+
+/* 🌙 Modo oscuro */
 body.oscuro {
   background: #121212;
   color: #f9f9f9;
@@ -82,10 +99,7 @@ body.oscuro button {
   border: 1px solid #888;
 }
 
-body.oscuro h1,
-body.oscuro h2,
-body.oscuro h3,
-body.oscuro label {
+body.oscuro h1, body.oscuro h2, body.oscuro h3, body.oscuro label {
   color: #ffffff;
   font-weight: bold;
 }
@@ -104,20 +118,6 @@ body.oscuro th {
 body.oscuro td {
   border-color: #555;
   color: #f0f0f0;
-}
-
-body.oscuro #total,
-body.oscuro #contador-autos {
-  color: #ffffff;
-  font-weight: bold;
-}
-
-.rojo {
-  background-color: #d32f2f;
-  color: white;
-  border: none;
-  padding: 4px 8px;
-  border-radius: 4px;
 }
 
 .rojo:hover {
